@@ -233,10 +233,8 @@ app.get("/todos/:todoId/", async (request, response) => {
 // API 3
 
 app.get("/agenda/", async (request, response) => {
-  let { date } = request.query;
-  date = new Date(date)
-  console.log(date)
-  console.log(typeof date)
+  const { date } = request.query;
+  const dateFormat = format(new Date(date),"yyyy-MM-dd")
   if(isValidDate(date)){
         console.log("valid date")
         const getTodoQuery = `
